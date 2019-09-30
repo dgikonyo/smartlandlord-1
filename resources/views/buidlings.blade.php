@@ -1,30 +1,28 @@
 @extends('layouts.app')
 @section('content')
-<p>Building1 </p>
-            <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Apartment Number</th>
-                        <th>Tenant</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                      </tr>
-                      <!--<tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                      </tr>
-                      <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                      </tr>-->
-                    </tbody>
-                  </table>
+  @if(count($buidings)>0)
+      @foreach ($buidings as $buidings)
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Buildings</th>
+              <th scope="col">City</th>
+              <th scope="col">No. of Houses</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="/{{$buildings->id}}">{{$buildings->id}}</a></th>
+              <td>{{$post->buildingName}}</td>
+              <td>{{$post->city}}</td>
+              <td>{{$post->numberOfHouses}}</td>
+            </tr>
+          </tbody>
+        </table>
+      @endforeach
+      {{$posts->links()}}
+  @else
+      <p>NO Buildings found</p>
+  @endif
 @endsection

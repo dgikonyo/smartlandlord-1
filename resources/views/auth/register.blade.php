@@ -61,13 +61,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                       <!-- <div class="form-group row">
                             <label for="user-type"class="col-md-4 col-form-label text-md-right">{{ __('User type') }}</label>
                             <div class="col-md-6">
-                               <select name="user-types"class="form-control">
-                                    <option value="admin">Administrator</option>
-                                    <option value="staff">Staff</option>
-                                </select>
+                                <input id="user-type" type="text" class="form-control" name="usertype-entry">
                             </div>
                         </div>
 
@@ -75,7 +72,7 @@
                         <label for="phone-number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
                             <div class="col-md-6">
                                 <input id="phone-number" type="text" class="form-control" name="phone-number-entry">
-                            </div>
+                            </div>-->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

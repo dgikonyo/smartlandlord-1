@@ -12,10 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('login');
 });
 
-Auth::routes();
 
 Route::get('/home','HomeController@index')->name('home');
 
@@ -31,8 +30,5 @@ Route::get('/payments',function(){
 Route::get('/staffLandingPage',function(){
 	return view('staffLandingPage');
 });
-Route::get('/registerTenants',function(){
-	return view('registerTenants');
-});
-
-Route::resource('SmartLandlord','TenantsController');
+Route::post('/addTenantsToDB','TenantsController@addTenants');
+Route::get('/registerTenants','TenantsController@index');

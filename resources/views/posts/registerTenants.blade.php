@@ -2,44 +2,66 @@
 @section('content')
 <title>Tenant Registration</title>
 <h1>Register Tenant</h1>
-<form action="{{url('TenantsController)}}"method="post">
-@csrf
+
+@if($errors->any())
+@foreach($errors->all() as $error)
+<div>
+<ul>
+<li>{{$error}}</li>
+</ul>
+</div>
+@endforeach
+@endif
+
+
+@if($success = Session::get('SUCCESS'))
+<h2>{{$success}}</h2>
+@endif
+
+@if($failed = Session::get('FAILED'))
+<h2>{{$failed}}</h2>
+@endif
+<form action = "{{url('/addTenantsToDB')}}" method="post">
+{{csrf_field()}}
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="fname">First Name</label>
-      <input type="text" class="form-control" id="fname" placeholder="First Name">
+      <input  name = "fname" type="text" class="form-control" id="fname" placeholder="First Name">
     </div>
     <div class="form-group col-md-6">
       <label for="lname">Last Name</label>
-      <input type="password" class="form-control" id="lname" placeholder="Password">
+      <input name = "lname" type="text" class="form-control" id="lname" placeholder="Last Name">
     </div>
   </div>
 
   <div class="form-group">
     <label for="emailAddress">Email</label>
-    <input type="email" class="form-control" id="emailAddress" placeholder="Email">
+    <input name= "email" type="email" class="form-control" id="emailAddress" placeholder="Email">
   </div>
   <div class="form-group">
     <label for="pow">Place Of Work</label>
-    <input type="text" class="form-control" id="pow" placeholder="bidco group...">
+    <input name = "placeofwork" type="text" class="form-control" id="pow" placeholder="bidco group...">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="idNumber">Id Number</label>
-      <input type="text" class="form-control" id="idNumber"placeholder="1234556">
+      <input name = "idnumber" type="text" class="form-control" id="idNumber"placeholder="1234556">
     </div>
     <div class="form-group col-md-4">
       <label for="Occ">Occupants</label>
-      <input type="text" class="form-control" id="Occ">
+      <input name = "occupants" type="text" class="form-control" id="Occ">
     </div>
     <div class="form-group col-md-2">
       <label for="gender">Gender</label>
-      <input type="text" class="form-control" id="gender">
+    <select name = "gender">
+    <option value = "MALE">Male</option>
+    <option value = "FEMALE">Female</option>
+    </select>
     </div>
   </div>
   <div class="form-group">
       <label for="building">Building</label>
-      <input type="text" class="form-control" id="Buidling Id">
+      <input name = "buildingid" type="text" class="form-control" id="Buidling Id">
   </div>
   <button type="submit" class="btn btn-primary">Register</button>
 </form>
