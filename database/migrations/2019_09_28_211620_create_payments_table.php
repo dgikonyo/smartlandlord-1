@@ -15,11 +15,16 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('invoiceNumber',100);
-            $table->timestamps();
-            $table->integer('amountPaid');
+            $table->string('invoiceNumber',100)->unique();
+            $table->integer('deposit')->nullable();
+            $table->integer('damages')->nullable();
+            $table->integer('penalty')->nullable();
+            $table->integer('monthlyrent');
+            $table->date('paymentDate');
+            $table->integer('amountPaid')->nullable();
             $table->unsignedBigInteger('apartmentId');
             $table->unsignedBigInteger('tenantId');
+            
             $table->foreign('apartmentId')
                     ->references('id')
                     ->on('apartments')

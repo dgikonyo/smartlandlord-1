@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
-use App\Tenants;
 
-class TenantsController extends Controller
+class PaymentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,35 +13,7 @@ class TenantsController extends Controller
      */
     public function index()
     {
-        return view('posts.registerTenants');
-    }
-
-    public function addTenants(Request $rq){
-      $validator = Validator::make($rq->all(),[
-          "email"=>"required|email",
-          "fname"=>"required|min:4"
-      ]);
-      if($validator->fails()){
-        return redirect('/registerTenants')
-                        ->withErrors($validator)
-                        ->withInput();
-      }else{
-          if(Tenants::create([
-            'firstName'=> $rq->get('fname'),
-            'lastName'=>$rq->get('lname'),
-            'email'=>$rq->get('email'),
-            'placeOfWork'=>$rq->get('placeofwork'),
-            'idNumber'=>$rq->get('idnumber'),
-            'occupants'=>$rq->get('occupants'),
-            'gender'=>$rq->get('gender'),
-            'buildingId'=>$rq->get('buildingid')
-
-        ])){
-            return redirect('/registerTenants')->with('SUCCESS','OK');
-        }else{
-            return redirect('/registerTenants')->with('FAILED','FAILED!');
-        }
-      } 
+        return view('posts.payments');
     }
 
     /**
@@ -51,9 +21,39 @@ class TenantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function addPayments(Request $pay){
+        $validator=Validator::make($pay->all(),[
+            "deposit"=>"nulllable|deposit",
+            "damages"=>"nulllable|damages",
+            "penalty"=>"nulllable|penalty",
+            "amount"=>"nulllable|amount",
+            "invoiceNumber"=>"required|invoiceNumber"
+        ]);
+        if ($validator->fails()){
+            return redirect('/payments')->withErrors($validator)
+                    ->withInput();
+        }else{
+            if(Payments::create([
+                'invoiceNumber'=> $pay->get('invoiceNumber'),
+                'deposit'=>$pay->get('deposit'),
+                'damages'=>$pay->get('damages'),
+                'penalty'=>$pay->get('penalty'),
+                'monthlyrent'=>$pay->get('rent'),
+                'paymentDate'=>$pay->get('paydate'),
+                'amountPaid'=>$pay->get('amount'),
+                'apartmentId'=>$pay->get('buildingid'),
+                'tenantId'=>$pay->get('tenantid')
+
+            ])){
+                return redirect('/payments')->with('SUCCESS','OK');
+            }else{
+                return redirect('/payments')->with('FAILED','OK');
+            }
+        }
+    }
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -64,7 +64,7 @@ class TenantsController extends Controller
      */
     public function store(Request $request)
     {
-       
+        //
     }
 
     /**

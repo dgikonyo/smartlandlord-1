@@ -17,11 +17,10 @@ class CreateBuildingsTable extends Migration
             $table->bigIncrements('buildingId');
             $table->string('buildingName');
             $table->string('city');
-            $table->date('dateEntered');
             $table->integer('landTitleNumber');
             $table->integer('numberOfHouses');
             $table->unsignedBigInteger('caretakerId')->nullable();
-            $table->timestamps();
+            $table->date('openingDate');
 
             $table->foreign('caretakerId')->references('id')->on('users')->onDelete('cascade');
         });

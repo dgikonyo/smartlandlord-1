@@ -53,12 +53,18 @@
     </div>
     <div class="form-group col-md-2">
       <label for="gender">Gender</label>
-    <select name = "gender">
-    <option value = "MALE">Male</option>
-    <option value = "FEMALE">Female</option>
-    </select>
+      <select name = "gender">
+        <option value = "MALE">Male</option>
+        <option value = "FEMALE">Female</option>
+      </select>
     </div>
   </div>
+  <div class="form-group">
+    <label for="date" class="col-sm-3 control-label">Date Checked in</label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control" id="date" name="checkinDate">
+      </div>
+  </div> 
   <div class="form-group">
       <label for="building">Building</label>
       <input name = "buildingid" type="text" class="form-control" id="Buidling Id">

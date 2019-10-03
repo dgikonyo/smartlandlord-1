@@ -22,11 +22,12 @@ class CreateTenantsTable extends Migration
             $table->integer('idNumber');
             $table->integer('occupants');
             $table->text('gender');
-            $table->date('dateCheckedOut');
-            $table->timestamps(); 
+            $table->date('checkinDate');
+            $table->date('dateCheckedOut')->nullable();
             $table->unsignedBigInteger('buildingId');
-            // $table->foreign('buildingId')->references('buildingId')->on('buildings')
-            // ->onDelete('cascade');
+
+            $table->foreign('buildingId')->references('buildingId')->on('buildings')
+            ->onDelete('cascade');
 
         });
     }

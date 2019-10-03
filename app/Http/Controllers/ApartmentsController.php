@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
-use App\Tenants;
 
-class TenantsController extends Controller
+class ApartmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,35 +13,7 @@ class TenantsController extends Controller
      */
     public function index()
     {
-        return view('posts.registerTenants');
-    }
-
-    public function addTenants(Request $rq){
-      $validator = Validator::make($rq->all(),[
-          "email"=>"required|email",
-          "fname"=>"required|min:4"
-      ]);
-      if($validator->fails()){
-        return redirect('/registerTenants')
-                        ->withErrors($validator)
-                        ->withInput();
-      }else{
-          if(Tenants::create([
-            'firstName'=> $rq->get('fname'),
-            'lastName'=>$rq->get('lname'),
-            'email'=>$rq->get('email'),
-            'placeOfWork'=>$rq->get('placeofwork'),
-            'idNumber'=>$rq->get('idnumber'),
-            'occupants'=>$rq->get('occupants'),
-            'gender'=>$rq->get('gender'),
-            'buildingId'=>$rq->get('buildingid')
-
-        ])){
-            return redirect('/registerTenants')->with('SUCCESS','OK');
-        }else{
-            return redirect('/registerTenants')->with('FAILED','FAILED!');
-        }
-      } 
+        //
     }
 
     /**
@@ -53,7 +23,7 @@ class TenantsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -64,7 +34,7 @@ class TenantsController extends Controller
      */
     public function store(Request $request)
     {
-       
+        //
     }
 
     /**

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 });
 
 
@@ -32,3 +32,9 @@ Route::get('/staffLandingPage',function(){
 });
 Route::post('/addTenantsToDB','TenantsController@addTenants');
 Route::get('/registerTenants','TenantsController@index');
+
+Route::post('/addPaymentsToDB','PaymentsController@addPayments');
+Route::get('/payments','PaymentsController@index');
+
+Route::post('/addExpensessToDB','ExpensesController@submitExpenses');
+Route::get('/expenses','ExpensesController@index');

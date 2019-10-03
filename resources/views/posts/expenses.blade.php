@@ -1,25 +1,67 @@
 @extends('layouts.app')
 @section('content')
-<form>
-  <div class="form-group row">
-    <label for="expenses"class="col-md-4 col-form-label text-md-right">Expenses</label>
-    <div class="col-md-6">
-        <input type="text" class="form-control" id="expense" placeholder="Enter expense">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="house-entry"class="col-md-4 col-form-label text-md-right">House Number</label>
-    <div class="col-md-6">
-        <input type="text" class="form-control" id="building-entry" placeholder="House Number">
-    </div>
-  </div>
-
-  <div class="form-group row mb-0"> 
-    <div class="col-md-6 offset-md-4">
-        <button type="submit" class="btn btn-primary">Submit Expense</button>
-    </div>
-  </div>
-
-</form>
+<div class="container">
+	<div class="row">
+        <div class="col-sm-12">
+            <legend>Monthly Payments</legend>
+        </div>
+        <!-- panel preview -->
+        <div class="col-sm-5">
+            <h4>Add payment:</h4>
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+                    <div class="form-group">
+                        <label for="concept" class="col-sm-3 control-label">Land Taxes</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="landTaxes" name="landTaxes">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-3 control-label">Maintenance</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="maintenance" name="maintenance">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="amount" class="col-sm-3 control-label">Salaries</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="salaries" name="salaries">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-sm-3 control-label">Expense Entry Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="entryDate" name="entryDate">
+                        </div>
+                    </div>   
+                    <div class="form-group">
+                        <label for="date" class="col-sm-3 control-label">Building Id</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="buildingId" name="buildingId">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-3 control-label">Amount</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="expenseamount" name="expenseamount">
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div> <!-- / panel preview -->
+        <div class="col-sm-7">
+            <div class="row text-right">
+                <div class="col-xs-12">
+                    <h4>Total Monthly Expense: <strong><span class="preview-total"></span></strong></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <hr style="border:1px dashed #dddddd;">
+                    <button type="submit" class="btn btn-primary btn-block">Submit Expenses</button>
+                </div>                
+            </div>
+        </div>
+	</div>
+</div>
 @endsection

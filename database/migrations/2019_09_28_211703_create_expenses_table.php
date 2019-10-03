@@ -15,9 +15,12 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('landtaxes')->nullable();
+            $table->integer('maintenance');
+            $table->integer('salaries');
+            $table->date('entryDate');
             $table->integer('amount');
-            $table->unsignedBigInteger('buildingId')->nullable();
+            $table->unsignedBigInteger('buildingId');
             
             $table->foreign('buildingId')
                     ->references('buildingId')
