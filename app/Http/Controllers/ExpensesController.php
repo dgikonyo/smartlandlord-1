@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Expenses;
 
 class ExpensesController extends Controller
 {
@@ -28,8 +30,8 @@ class ExpensesController extends Controller
                 'maintenance'=>$pay->get('maintenance'),
                 'salaries'=>$pay->get('salaries'),
                 'entryDate'=>$pay->get('entryDate'),
-                'amount'=>$pay->get('amount'),
-                'buildingId'=>$pay->get('buildingId')
+                'amount'=>$pay->get('amount')
+                
             ])){
                 return redirect('/expenses')->with('SUCCESS','OK');
             }else{

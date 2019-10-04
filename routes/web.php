@@ -21,12 +21,11 @@ Route::get('/home','HomeController@index')->name('home');
 Route::get('/profits',function(){
 	return view('profits');
 });
+
 Route::get('/buildings',function(){
 	return view('buildings');
 });
-Route::get('/payments',function(){
-    return view('payments');
-});
+
 Route::get('/staffLandingPage',function(){
 	return view('staffLandingPage');
 });
@@ -38,3 +37,5 @@ Route::get('/payments','PaymentsController@index');
 
 Route::post('/addExpensessToDB','ExpensesController@submitExpenses');
 Route::get('/expenses','ExpensesController@index');
+
+Route::get('/profits','RevenuesController@index');

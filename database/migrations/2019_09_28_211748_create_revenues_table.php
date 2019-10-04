@@ -16,14 +16,8 @@ class CreateRevenuesTable extends Migration
         Schema::create('revenues', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('revenueAmount');
-            $table->timestamps();
-            $table->unsignedBigInteger('buildingId')->nullable();
-
-            $table->foreign('buildingId')
-                    ->references('buildingId')
-                    ->on('buildings')
-                    ->onDelete('cascade');
-
+            $table->date('dateEntered');
+            
         });
     }
 

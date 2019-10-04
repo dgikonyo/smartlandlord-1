@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Revenues;
 
 class RevenuesController extends Controller
 {
@@ -13,7 +15,7 @@ class RevenuesController extends Controller
      */
     public function index()
     {
-        //
+        return view('profits');
     }
 
     /**

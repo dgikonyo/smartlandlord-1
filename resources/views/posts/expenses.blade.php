@@ -6,6 +6,8 @@
             <legend>Monthly Payments</legend>
         </div>
         <!-- panel preview -->
+        <form method="{{url('/addExpensesToDB')}}"method="post">
+        {{csrf_field()}}
         <div class="col-sm-5">
             <h4>Add payment:</h4>
             <div class="panel panel-default">
@@ -49,6 +51,7 @@
                 </div>
             </div>            
         </div> <!-- / panel preview -->
+        </form>
         <div class="col-sm-7">
             <div class="row text-right">
                 <div class="col-xs-12">

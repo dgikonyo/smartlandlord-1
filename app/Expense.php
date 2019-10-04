@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     protected $table = 'expenses';
-    protected $fillable = ['landtaxes','maintenance','salaries','entryDate','amount','buildingId'];
+    protected $fillable = ['landtaxes','maintenance','salaries','entryDate','amount'];
 
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Payments;
 
 class PaymentsController extends Controller
 {
@@ -41,7 +43,7 @@ class PaymentsController extends Controller
                 'monthlyrent'=>$pay->get('rent'),
                 'paymentDate'=>$pay->get('paydate'),
                 'amountPaid'=>$pay->get('amount'),
-                'apartmentId'=>$pay->get('buildingid'),
+                'apartmentId'=>$pay->get('apartmentId'),
                 'tenantId'=>$pay->get('tenantid')
 
             ])){

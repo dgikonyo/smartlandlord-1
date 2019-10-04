@@ -24,11 +24,9 @@ class CreateTenantsTable extends Migration
             $table->text('gender');
             $table->date('checkinDate');
             $table->date('dateCheckedOut')->nullable();
-            $table->unsignedBigInteger('buildingId');
+           
 
-            $table->foreign('buildingId')->references('buildingId')->on('buildings')
-            ->onDelete('cascade');
-
+            
         });
     }
 

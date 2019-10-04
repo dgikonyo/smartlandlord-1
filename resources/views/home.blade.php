@@ -20,4 +20,9 @@
         </div>
     </div>
 </div>
+
+<div>
+<a href="{{ route('payments') }}">Payments</a>
+<a href="{{ route('expenses') }}">Expenses</a>
+</div>
 @endsection

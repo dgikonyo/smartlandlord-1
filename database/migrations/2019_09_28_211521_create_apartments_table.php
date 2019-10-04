@@ -15,13 +15,8 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('buildingId');
+            
             $table->unsignedBigInteger('tenantId')->nullable();
-
-            $table->foreign('buildingId')
-                    ->references('buildingId')
-                    ->on('buildings')
-                    ->onDelete('cascade');
             $table->foreign('tenantId')
                     ->references('id')
                     ->on('tenants')

@@ -20,13 +20,7 @@ class CreateExpensesTable extends Migration
             $table->integer('salaries');
             $table->date('entryDate');
             $table->integer('amount');
-            $table->unsignedBigInteger('buildingId');
-            
-            $table->foreign('buildingId')
-                    ->references('buildingId')
-                    ->on('buildings')
-                    ->onDelete('cascade');
-
+           
         });
     }
 
