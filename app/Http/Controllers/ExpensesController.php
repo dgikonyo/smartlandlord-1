@@ -37,6 +37,19 @@ class ExpensesController extends Controller
             }
         }
     }
+    
+    public function makechart($wild){
+        $wild='-09-';
+        $impromptu=Db::table('expenses')->where('date','LIKE','%'.$wild.'%')->sum('impromptu');
+        $garbage=Db::table('expenses')->where('date','LIKE','%'.$wild.'%')->sum('garbage');
+        $repairs=Db::table('expenses')->where('date','LIKE','%'.$wild.'%')->sum('repairs');
+        $expenses=$impromptu+$garbage+$repairs;
+        $rent= DB::table('rent')->where('month','LIKE','%'.$wild.'%')->sum('amount');
+
+        $Profit=$rent-$expenses;
+        //chart stuff itakuwa hapa pia
+        //more changes to come
+    }
 
     /**
      * Show the form for creating a new resource.
