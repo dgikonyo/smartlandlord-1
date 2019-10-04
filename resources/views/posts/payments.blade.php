@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <form action = "{{url('/addPaymentsToDB')}}" method="post">
+{{csrf_field()}}
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
