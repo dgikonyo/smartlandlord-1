@@ -16,8 +16,6 @@ class CreateRevenuesTable extends Migration
         Schema::create('revenues', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('revenueAmount');
-            $table->date('dateEntered');
-            
         });
     }
 

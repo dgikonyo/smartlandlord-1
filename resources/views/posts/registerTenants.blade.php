@@ -65,10 +65,7 @@
         <input type="date" class="form-control" id="date" name="checkinDate">
       </div>
   </div> 
-  <div class="form-group">
-      <label for="building">Building</label>
-      <input name = "buildingid" type="text" class="form-control" id="Buidling Id">
-  </div>
+  
   <button type="submit" class="btn btn-primary">Register</button>
 </form>
 @endsection

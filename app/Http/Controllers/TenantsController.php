@@ -36,7 +36,7 @@ class TenantsController extends Controller
             'idNumber'=>$rq->get('idnumber'),
             'occupants'=>$rq->get('occupants'),
             'gender'=>$rq->get('gender'),
-            'buildingId'=>$rq->get('buildingid')
+            'checkinDate'=>$rq->get('checkinDate')
 
         ])){
             return redirect('/registerTenants')->with('SUCCESS','OK');

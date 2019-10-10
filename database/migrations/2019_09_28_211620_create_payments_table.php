@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('penalty')->nullable();
             $table->integer('monthlyrent');
             $table->date('paymentDate');
+           ;
             $table->integer('amountPaid')->nullable();
             $table->unsignedBigInteger('apartmentId');
             $table->unsignedBigInteger('tenantId');

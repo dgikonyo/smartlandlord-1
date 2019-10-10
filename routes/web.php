@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('auth.login');
 });
 
 
@@ -20,6 +20,9 @@ Route::get('/home','HomeController@index')->name('home');
 
 Route::get('/profits',function(){
 	return view('profits');
+});
+Route::get('/login',function(){
+	return view('auth.login');
 });
 
 Route::get('/buildings',function(){

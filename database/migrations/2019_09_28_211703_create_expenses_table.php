@@ -20,6 +20,7 @@ class CreateExpensesTable extends Migration
             $table->integer('salaries');
             $table->date('entryDate');
             $table->integer('amount');
+            
            
         });
     }
